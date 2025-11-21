@@ -5,7 +5,7 @@ import Button from "./Button";
 
 export default function ThankYou({ onRestart }: { onRestart: () => void }) {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 md:p-6 p-2">
+    <div className="min-h-screen flex items-center justify-center bg-green-100 md:p-6 p-4">
       <div className="bg-white md:p-10 p-4 rounded-2xl shadow-lg relative text-center max-w-lg mx-auto">
         <button className="absolute top-4 right-4 text-gray-800 hover:text-gray-900">
           <X className="md:w-6 md:h-6 w-4 h-4" />

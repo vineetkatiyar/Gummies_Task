@@ -39,7 +39,7 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 md:p-6 relative">
+    <div className="min-h-screen flex items-center justify-center bg-green-100 md:p-6 relative">
       <QuestionCard
         question={current}
         current={index + 1}

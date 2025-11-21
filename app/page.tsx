@@ -2,7 +2,6 @@
 
 import { questions } from "@/data/Questions";
 import { useState } from "react";
-import Timer from "./components/Timer";
 import QuestionCard from "./components/QuestionCard";
 import ThankYou from "./components/Thankyou";
 

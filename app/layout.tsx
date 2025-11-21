@@ -9,7 +9,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "Gummies Task",
-  description: "Gummies Task",
+  description: "Gummies Task by Toffee",
 };
 
 export default function RootLayout({

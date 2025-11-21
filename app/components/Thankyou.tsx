@@ -22,7 +22,7 @@ export default function ThankYou({ onRestart }: { onRestart: () => void }) {
         <p className="text-gray-500 text-xs mb-6">
           Your answers have been sent.
         </p>
-        <p className="text-gray-900 md:text-lg text-sm mb-8 md:px-4">
+        <p className="text-gray-900 md:text-base text-sm mb-8 md:px-4">
           Toffee gummies sweet roll marshmallow cake marshmallow sweet pastry
         </p>
         <Button onClick={onRestart}>Start Evaluation</Button>

@@ -73,7 +73,11 @@ const Result = () => {
         <p className="text-gray-900 md:text-base text-sm mb-8 md:px-4">
           Toffee gummies sweet roll marshmallow cake marshmallow sweet pastry
         </p>
-        <Button onClick={restart}>Start Again</Button>
+        <div className="flex justify-center">
+          <Button variant="primary" loading={false} onClick={restart}>
+            Start Again
+          </Button>
+        </div>
       </div>
     </div>
   );

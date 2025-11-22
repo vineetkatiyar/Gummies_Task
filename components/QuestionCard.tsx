@@ -45,7 +45,10 @@ export default function QuestionCard({
         {[1, 2, 3, 4, 5].map((star, i) => {
           const labels = ["Very Bad", "Bad", "Handles", "Good", "Perfect"];
           return (
-            <div key={star} className="flex flex-col items-center cursor-pointer">
+            <div
+              key={star}
+              className="flex flex-col items-center cursor-pointer"
+            >
               <StarIcon filled={rating >= star} onClick={() => onRate(star)} />
               <span className="text-[8px] sm:text-[9px] mt-1 text-gray-500 text-center px-1">
                 {labels[i]}
@@ -57,7 +60,12 @@ export default function QuestionCard({
 
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-4 sm:mt-6 border-t pt-3 sm:pt-4 gap-3 sm:gap-0">
         <div className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4">
-          <Button disabled={disabled} onClick={onNext}>
+          <Button
+            variant="primary"
+            loading={false}
+            disabled={disabled}
+            onClick={onNext}
+          >
             Next Question
           </Button>
           <p className="text-[10px] text-gray-500 text-center sm:text-left sm:mt-2">

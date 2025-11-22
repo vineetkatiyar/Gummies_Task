@@ -78,7 +78,7 @@ export default function QuestionCard({
 
         <div className="flex justify-center sm:justify-end">
           <Timer
-            initial={90}
+            initial={60}
             onComplete={() => {
               setTimeout(() => {
                 router.push("/result");

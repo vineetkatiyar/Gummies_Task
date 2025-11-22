@@ -8,7 +8,7 @@ interface TimerProps {
   onComplete?: () => void;
 }
 
-export default function Timer({ initial = 90, onComplete }: TimerProps) {
+export default function Timer({ initial = 60, onComplete }: TimerProps) {
   const [time, setTime] = useState(initial);
 
   useEffect(() => {

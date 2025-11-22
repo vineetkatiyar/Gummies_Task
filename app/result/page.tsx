@@ -8,8 +8,15 @@ import { useRouter } from "next/navigation";
 const Result = () => {
   const questionRatings = useRatingStore((state) => state.questionRatings);
   const router = useRouter();
+  const attemptedRatings = questionRatings.filter((r) => r > 0);
+
   const average =
-    questionRatings.reduce((sum, x) => sum + x, 0) / questionRatings.length;
+    attemptedRatings.length > 0
+      ? (
+          attemptedRatings.reduce((sum, x) => sum + x, 0) /
+          attemptedRatings.length
+        ).toFixed(1)
+      : 0;
 
   function restart() {
     router.push("/");
@@ -57,7 +64,11 @@ const Result = () => {
               </span>
 
               <span className="flex items-center gap-1 text-sm font-semibold text-gray-700">
-                {renderStars(questionRatings[i])}
+                {questionRatings[i] > 0 ? (
+                  renderStars(questionRatings[i])
+                ) : (
+                  <span>Not Rated</span>
+                )}
               </span>
             </div>
           ))}
@@ -66,7 +77,7 @@ const Result = () => {
         <div className="flex justify-center md:gap-4 gap-2 items-center mb-6">
           <span className="font-medium text-gray-800 text-sm">Average</span>
           <span className="flex items-center gap-1 text-sm font-semibold text-gray-700">
-            {average} stars{" "}
+            {average}/5 ⭐
           </span>
         </div>
 

@@ -1,37 +1,39 @@
 "use client";
 
 import { questions } from "@/data/Questions";
-import { useState } from "react";
+import { useEffect } from "react";
 import QuestionCard from "../components/QuestionCard";
 import { useRouter } from "next/navigation";
 import { useRatingStore } from "@/store/useResultStore";
 
 export default function Home() {
-
   const currentQuestion = useRatingStore((state) => state.currentQuestion);
   const ratings = useRatingStore((state) => state.questionRatings);
   const setRating = useRatingStore((state) => state.setRating);
   const nextQuestion = useRatingStore((state) => state.nextQuestion);
+  const resetAll = useRatingStore((state) => state.resetAll);
 
   const router = useRouter();
 
-  const question = questions[currentQuestion]; 
+  useEffect(() => {
+    resetAll();
+  }, [resetAll]);
+
+  const question = questions[currentQuestion];
 
   function handleRate(star: number) {
-   setRating(currentQuestion, star);
+    setRating(currentQuestion, star);
   }
 
   function nextQuestionFn() {
     if (currentQuestion < questions.length - 1) {
-      nextQuestion()
-   } else {
-      router.push("/result")
-   }
-   
+      nextQuestion();
+    } else {
+      router.push("/result");
+    }
   }
 
   const isDisabled = ratings[currentQuestion] === 0;
-
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-green-100 md:p-6 relative">

@@ -7,16 +7,12 @@ import { useRouter } from "next/navigation";
 
 const Result = () => {
   const questionRatings = useRatingStore((state) => state.questionRatings);
-  const resetfn = useRatingStore((state) => state.resetAll);
   const router = useRouter();
   const average =
     questionRatings.reduce((sum, x) => sum + x, 0) / questionRatings.length;
 
   function restart() {
-    resetfn();
-    setTimeout(() => {
-      router.push("/");
-    }, 0);
+    router.push("/");
   }
 
   function renderStars(count: number) {

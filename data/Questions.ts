@@ -1,43 +1,42 @@
 export const questions = [
-    {
-      title: "1. Team Communication",
-      description: "How comfortable are you communicating with team members during a project?"
-    },
-    {
-      title: "2. Problem Solving",
-      description: "How confident are you when debugging or identifying issues in code?"
-    },
-    {
-      title: "3. Technical Learning",
-      description: "How quickly can you learn and adapt to new technologies or tools?"
-    },
-    {
-      title: "4. Time Management",
-      description: "How well do you manage deadlines and prioritize tasks?"
-    },
-    {
-      title: "5. Code Quality",
-      description: "How important is writing clean and maintainable code for you?"
-    },
-    {
-      title: "6. UI/UX Understanding",
-      description: "How comfortable are you designing simple and user-friendly interfaces?"
-    },
-    {
-      title: "7. Collaboration Skills",
-      description: "How effectively can you work with others on shared codebases?"
-    },
-    {
-      title: "8. Attention to Detail",
-      description: "How often do you focus on small details while developing features?"
-    },
-    {
-      title: "9. Responsibility",
-      description: "How responsible do you feel about completing tasks on time?"
-    },
-    {
-      title: "10. Enthusiasm for Learning",
-      description: "How much do you enjoy learning new things and improving your skills?"
-    }
-  ];
-  
+  {
+    title: "1. UI Clean",
+    description: "How clean and visually appealing do you think this interface is?"
+  },
+  {
+    title: "2. Easy to Use",
+    description: "How easy is it for you to use this evaluation system?"
+  },
+  {
+    title: "3. Button Responsive",
+    description: "How smooth and responsive do the buttons feel?"
+  },
+  {
+    title: "4. Readability",
+    description: "How easy is it to read the text and labels on this screen?"
+  },
+  {
+    title: "5. Satisfaction",
+    description: "How satisfied are you with your experience so far?"
+  },
+  {
+    title: "6. Smooth Navigation",
+    description: "How smooth does switching between questions feel?"
+  },
+  {
+    title: "7. Animation Quality",
+    description: "How good do the small animations / transitions feel?"
+  },
+  {
+    title: "8. Design Consistency",
+    description: "How consistent does the design feel across the app?"
+  },
+  {
+    title: "9. Usability on Mobile",
+    description: "How comfortable is this UI on mobile devices?"
+  },
+  {
+    title: "10. Overall Experience",
+    description: "How would you rate your overall experience using this test?"
+  }
+];

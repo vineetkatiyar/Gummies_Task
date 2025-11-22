@@ -15,6 +15,7 @@ interface QuestionCardProps {
   rating: number;
   onRate: (star: number) => void;
   onNext: () => void;
+  disabled: boolean;
 }
 
 export default function QuestionCard({
@@ -24,6 +25,7 @@ export default function QuestionCard({
   rating,
   onRate,
   onNext,
+  disabled
 }: QuestionCardProps) {
   return (
     <div className="bg-white p-3 sm:p-6 md:p-8 rounded-lg shadow-lg w-full max-w-xl mx-4 sm:mx-auto relative">
@@ -56,7 +58,7 @@ export default function QuestionCard({
 
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-4 sm:mt-6 border-t pt-3 sm:pt-4 gap-3 sm:gap-0">
         <div className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4">
-          <Button onClick={onNext}>Next Question</Button>
+          <Button disabled={disabled} onClick={onNext}>Next Question</Button>
           <p className="text-[10px] text-gray-500 text-center sm:text-left sm:mt-2">
             Remaining Question {current} / {total}
           </p>

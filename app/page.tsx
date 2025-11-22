@@ -2,50 +2,47 @@
 
 import { questions } from "@/data/Questions";
 import { useState } from "react";
-import QuestionCard from "./components/QuestionCard";
-import ThankYou from "./components/Thankyou";
+import QuestionCard from "../components/QuestionCard";
+import { useRouter } from "next/navigation";
+import { useRatingStore } from "@/store/useResultStore";
 
 export default function Home() {
-  const [index, setIndex] = useState(0);
-  const [ratings, setRatings] = useState(Array(questions.length).fill(0));
-  const [completed, setCompleted] = useState(false);
 
-  const current = questions[index];
+  const currentQuestion = useRatingStore((state) => state.currentQuestion);
+  const ratings = useRatingStore((state) => state.questionRatings);
+  const setRating = useRatingStore((state) => state.setRating);
+  const nextQuestion = useRatingStore((state) => state.nextQuestion);
+
+  const router = useRouter();
+
+  const question = questions[currentQuestion]; 
 
   function handleRate(star: number) {
-    const copy = [...ratings];
-    copy[index] = star;
-    setRatings(copy);
+   setRating(currentQuestion, star);
   }
 
-  function nextQuestion() {
-    if (index < questions.length - 1) {
-      setIndex(index + 1);
-    } else {
-      setCompleted(true);
-    }
+  function nextQuestionFn() {
+    if (currentQuestion < questions.length - 1) {
+      nextQuestion()
+   } else {
+      router.push("/result")
+   }
+   
   }
-  if (completed) {
-    return (
-      <ThankYou
-        onRestart={() => {
-          setCompleted(false);
-          setIndex(0);
-          setRatings(Array(questions.length).fill(0));
-        }}
-      />
-    );
-  }
+
+  const isDisabled = ratings[currentQuestion] === 0;
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-green-100 md:p-6 relative">
       <QuestionCard
-        question={current}
-        current={index + 1}
+        question={question}
+        current={currentQuestion + 1}
         total={questions.length}
-        rating={ratings[index]}
+        rating={ratings?.[currentQuestion] ?? 0}
         onRate={handleRate}
-        onNext={nextQuestion}
+        onNext={nextQuestionFn}
+        disabled={isDisabled}
       />
     </div>
   );

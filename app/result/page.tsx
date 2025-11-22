@@ -15,7 +15,7 @@ const Result = () => {
   function restart() {
     resetfn();
     setTimeout(() => {
-      router.push("/");
+      router.replace("/");
     }, 0);
   }
 

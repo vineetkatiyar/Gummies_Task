@@ -6,14 +6,17 @@ import { Check, Star, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 const Result = () => {
-  const ratings = useRatingStore((state) => state.questionRatings);
-  const reset = useRatingStore((state) => state.resetAll);
+  const questionRatings = useRatingStore((state) => state.questionRatings);
+  const resetfn = useRatingStore((state) => state.resetAll);
   const router = useRouter();
-  const average = ratings.reduce((sum, x) => sum + x, 0) / ratings.length;
+  const average =
+    questionRatings.reduce((sum, x) => sum + x, 0) / questionRatings.length;
 
   function restart() {
-    reset();
-    router.push("/");
+    resetfn();
+    setTimeout(() => {
+      router.push("/");
+    }, 0);
   }
 
   function renderStars(count: number) {
@@ -58,7 +61,7 @@ const Result = () => {
               </span>
 
               <span className="flex items-center gap-1 text-sm font-semibold text-gray-700">
-                {renderStars(ratings[i])}
+                {renderStars(questionRatings[i])}
               </span>
             </div>
           ))}
@@ -67,7 +70,7 @@ const Result = () => {
         <div className="flex justify-center md:gap-4 gap-2 items-center mb-6">
           <span className="font-medium text-gray-800 text-sm">Average</span>
           <span className="flex items-center gap-1 text-sm font-semibold text-gray-700">
-            {average} stars
+            {average} stars{" "}
           </span>
         </div>
 

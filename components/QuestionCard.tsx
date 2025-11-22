@@ -4,6 +4,7 @@ import Button from "./Button";
 import StarIcon from "./Stars";
 import Timer from "./Timer";
 import { X } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 interface QuestionCardProps {
   question: {
@@ -27,6 +28,8 @@ export default function QuestionCard({
   onNext,
   disabled,
 }: QuestionCardProps) {
+  const router = useRouter();
+
   return (
     <div className="bg-white p-3 sm:p-6 md:p-8 rounded-lg shadow-lg w-full max-w-xl mx-4 sm:mx-auto relative">
       <button className="absolute top-3 sm:top-4 right-3 sm:right-4 text-gray-800 hover:text-gray-900">
@@ -74,7 +77,14 @@ export default function QuestionCard({
         </div>
 
         <div className="flex justify-center sm:justify-end">
-          <Timer initial={900} />
+          <Timer
+            initial={90}
+            onComplete={() => {
+              setTimeout(() => {
+                router.push("/result");
+              }, 0);
+            }}
+          />
         </div>
       </div>
     </div>

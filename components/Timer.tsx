@@ -8,7 +8,7 @@ interface TimerProps {
   onComplete?: () => void;
 }
 
-export default function Timer({ initial = 900, onComplete }: TimerProps) {
+export default function Timer({ initial = 90, onComplete }: TimerProps) {
   const [time, setTime] = useState(initial);
 
   useEffect(() => {
@@ -43,7 +43,10 @@ export default function Timer({ initial = 900, onComplete }: TimerProps) {
 
   return (
     <div className="flex items-center rounded-full py-1">
-      <TimerIcon strokeWidth={1.2} className="md:w-9 md:h-9 w-8 h-8 text-black" />
+      <TimerIcon
+        strokeWidth={1.2}
+        className="md:w-9 md:h-9 w-8 h-8 text-black"
+      />
       <div className="font-semibold px-1 py-1">
         <p className="text-gray-500 font-medium text-[9px]">Time Remaining</p>
         <p className="text-gray-900 md:text-lg text-base">{format(time)}</p>

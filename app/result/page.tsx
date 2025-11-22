@@ -4,11 +4,8 @@ import { questions } from "@/data/Questions";
 import { useRatingStore } from "@/store/useResultStore";
 import { Check, Star, X } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 
 const Result = () => {
-  const [isRestarting, setIsRestarting] = useState(false);
-
   const questionRatings = useRatingStore((state) => state.questionRatings);
   const resetfn = useRatingStore((state) => state.resetAll);
   const router = useRouter();
@@ -16,12 +13,11 @@ const Result = () => {
     questionRatings.reduce((sum, x) => sum + x, 0) / questionRatings.length;
 
   function restart() {
-    setIsRestarting(true);
     resetfn();
-    router.push("/");
+    setTimeout(() => {
+      router.push("/");
+    }, 0);
   }
-
-  if (isRestarting) return null;
 
   function renderStars(count: number) {
     return (
